@@ -1,6 +1,13 @@
 # Changes
 
 ## Unreleased
+* **Breaking** Add support to select a resampling algorithm when reading a raster
+    * <https://github.com/georust/gdal/pull/141>
+
+    Now, it is necessary to provide a `GDALRIOResampleAlg::Type` when reading a raster.
+    If `None`, it uses `GDALRIOResampleAlg::GRIORA_NearestNeighbour` which was the
+    default behavior.
+
 * **Breaking**: Use `DatasetOptions` to pass as `Dataset::open_ex` parameters and
     add support for extended open flags.
 
@@ -74,6 +81,7 @@
   `SpatialRef::axis_mapping_strategy` instead.
 * Add support for reading and setting rasterband colour interpretations
     * <https://github.com/georust/gdal/pull/144>
+
 ## 0.7.1
 * fix docs.rs build for gdal-sys
     * <https://github.com/georust/gdal/pull/128>
